@@ -112,14 +112,8 @@ module.exports = (env = '') => {
     if (!production && browser) {
       return [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.EnvironmentPlugin(['NODE_ENV'])
-        // stylelint-webpack-plugin does not support webpack 2 yet
-        // new styleLintPlugin({
-        //   configFile: path.resolve(__DIR__, '.stylelintrc'),
-        //   context: path.resolve(__DIR__, 'app'),
-        //   files: '**/*.?(sa|sc|c)ss'
-        // })
       ];
     }
     if (production && !browser) {
